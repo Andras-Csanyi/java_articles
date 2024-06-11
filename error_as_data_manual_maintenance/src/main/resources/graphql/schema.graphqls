@@ -1,0 +1,21 @@
+type Query{
+    getArticlesSuccess: ArticleResult!
+    getArticlesError: ArticleResult!
+}
+
+union ArticleResult = ArticleOutput | SomeError
+
+type ArticleOutput {
+    articles: [Article]
+}
+
+type Article {
+    id: ID!
+    name: String
+}
+
+type SomeError {
+    message: String!
+}
+
+
